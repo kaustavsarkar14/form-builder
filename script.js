@@ -38,24 +38,27 @@ addButtons.forEach((button) => {
 function initListeners() {
   const inputDivs = document.querySelectorAll(".inputDiv");
   inputDivs.forEach((inputDiv) => {
+    const uid = inputDiv.querySelector(".input").id;
+    const deleteButton = inputDiv.querySelector("button");
+    deleteButton.onclick = () => deleteInputDiv(uid);
     inputDiv.draggable = true;
-    inputDiv.addEventListener('dragstart', e=>{
-        e.target.classList.add("dragging")
-    })
-    inputDiv.addEventListener('dragend', e=>{
-        e.target.classList.remove("dragging")
-    })
+    inputDiv.addEventListener("dragstart", (e) => {
+      e.target.classList.add("dragging");
+    });
+    inputDiv.addEventListener("dragend", (e) => {
+      e.target.classList.remove("dragging");
+    });
   });
-}
-initListeners()
 
-function deleteInputDiv(id) {
-  document.getElementById(id).parentElement.remove();
+}
+initListeners();
+
+function deleteInputDiv(inputId) {
+  document.getElementById(inputId).parentElement.remove();
 }
 
 saveButton.addEventListener("click", (e) => {
   const inputDivs = [...document.querySelectorAll(".inputDiv")];
-  console.log(inputDivs);
   const result = inputDivs.map((inputDiv) => {
     const input = inputDiv.querySelector(".input");
     const label = inputDiv.querySelector("label");

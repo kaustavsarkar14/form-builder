@@ -65,7 +65,10 @@ nav {
 .inputDiv input{
     width: 100%;
 }
-
+.input {
+    padding: 0.2rem;
+    font-size: 0.8rem;
+}
 .dragging {
     opacity: 0.5;
 }
