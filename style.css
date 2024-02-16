@@ -53,9 +53,11 @@ nav {
 }
 .inputDiv {
     width: 100%;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    border-radius: 8px;
 }
 .inputDiv div {
     width: 100%;
@@ -70,5 +72,8 @@ nav {
     font-size: 0.8rem;
 }
 .dragging {
-    opacity: 0.5;
+    opacity: 0.2;
+}
+.over {
+    background-color: rgb(188, 188, 188);
 }

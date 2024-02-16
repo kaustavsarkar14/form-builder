@@ -2,6 +2,9 @@ const addButtons = document.querySelectorAll(".add-button");
 const formContainer = document.getElementById("formContainer");
 const saveButton = document.getElementById("save");
 
+let dragElement = null;
+let dropElement = null;
+
 addButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const newInputDiv = document.createElement("div");
@@ -38,20 +41,41 @@ addButtons.forEach((button) => {
 function initListeners() {
   const inputDivs = document.querySelectorAll(".inputDiv");
   inputDivs.forEach((inputDiv) => {
-    const uid = inputDiv.querySelector(".input").id;
-    const deleteButton = inputDiv.querySelector("button");
-    deleteButton.onclick = () => deleteInputDiv(uid);
     inputDiv.draggable = true;
-    inputDiv.addEventListener("dragstart", (e) => {
-      e.target.classList.add("dragging");
-    });
-    inputDiv.addEventListener("dragend", (e) => {
-      e.target.classList.remove("dragging");
-    });
+    inputDiv.addEventListener("dragstart", dragStart);
+    inputDiv.addEventListener("dragend", dragEnd);
   });
 
+  const dropInputDivs = document.querySelectorAll(".inputDiv:not(.dragging)");
+  dropInputDivs.forEach((dropInputDiv) => {
+    dropInputDiv.addEventListener("dragover", dragOver);
+    dropInputDiv.addEventListener("dragleave", dragLeave);
+    dropInputDiv.addEventListener("drop", dragDrop);
+  });
 }
 initListeners();
+
+function dragStart(e) {
+  e.target.classList.add("dragging");
+  dragElement = e.target;
+}
+function dragEnd(e) {
+  e.target.classList.remove("dragging");
+}
+function dragOver(e) {
+  e.preventDefault();
+  dropElement = this;
+  this.classList.add("over");
+}
+function dragLeave(e) {
+  this.classList.remove("over");
+}
+function dragDrop(e) {
+  const temp = dragElement.innerHTML;
+  dragElement.innerHTML = dropElement.innerHTML;
+  this.innerHTML = temp;
+  this.classList.remove("over");
+}
 
 function deleteInputDiv(inputId) {
   document.getElementById(inputId).parentElement.remove();
