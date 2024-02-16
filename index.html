@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form designer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <h3>Form designer</h3>
+      <button id="save">Save</button>
+    </nav>
+    <div class="body">
+      <section class="components">
+        <h3>Components</h3>
+        <div class="inputs">
+          <button id="input" class="add-button" >Input</button>
+          <button id="select" class="add-button" >Select</button>
+          <button id="textarea"  class="add-button">Textarea</button>
+        </div>
+      </section>
+      <section id="formContainer">
+        <div class="inputDiv">
+          <div>
+            <label for="textInput">Sample label</label>
+            <button>Delete</button>
+          </div>
+          <input placeholder="placeholder..." class="input" type="text" id="textInput" />
+        </div>
+        <div class="inputDiv">
+          <div>
+            <label for="selectInput">Select</label>
+            <button>Delete</button>
+          </div>
+          <select placeholder="placeholder..." class="input" id="selectInput"></select>
+        </div>
+        <div class="inputDiv">
+          <div>
+            <label for="selectInput">Textarea</label>
+            <button>Delete</button>
+          </div>
+          <textarea placeholder="placeholder..." class="input" id="selectInput"></textarea>
+        </div>
+        
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
