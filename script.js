@@ -25,7 +25,7 @@ addButtons.forEach((button) => {
     newInputDiv.innerHTML = `
           <div>
             <label for="${uid}">${labelText}</label>
-            <button onclick="deleteInputDiv('${uid}')" >Delete</button>
+            <button onclick="deleteInputDiv('${uid}')" ><i class="fa-solid fa-trash"></i></button>
           </div>
    `;
     const input = document.createElement(inputType);

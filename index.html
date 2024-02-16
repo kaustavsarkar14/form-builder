@@ -5,40 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form designer</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body>
     <nav>
       <h3>Form designer</h3>
-      <button id="save">Save</button>
+      <button id="save">Save <i class="fa-solid fa-floppy-disk"></i></button>
     </nav>
     <div class="body">
       <section class="components">
         <h3>Components</h3>
         <div class="inputs">
-          <button id="input" class="add-button" >Input</button>
-          <button id="select" class="add-button" >Select</button>
-          <button id="textarea"  class="add-button">Textarea</button>
+          <button id="input" class="add-button" >Input <i class="fa-solid fa-plus"></i></button>
+          <button id="select" class="add-button" >Select <i class="fa-solid fa-plus"></i></button>
+          <button id="textarea"  class="add-button">Textarea <i class="fa-solid fa-plus"></i></button>
         </div>
       </section>
       <section id="formContainer">
         <div class="inputDiv">
           <div>
             <label for="textInput">Sample label</label>
-            <button onclick="deleteInputDiv('textInput')" >Delete</button>
+            <button onclick="deleteInputDiv('textInput')" ><i class="fa-solid fa-trash"></i></button>
           </div>
           <input placeholder="placeholder..." class="input" type="text" id="textInput" />
         </div>
         <div class="inputDiv">
           <div>
             <label for="selectInput">Select</label>
-            <button onclick="deleteInputDiv('selectInput')">Delete</button>
+            <button onclick="deleteInputDiv('selectInput')"><i class="fa-solid fa-trash"></i></button>
           </div>
           <select placeholder="placeholder..." class="input" id="selectInput"></select>
         </div>
         <div class="inputDiv">
           <div>
             <label for="textareaInput">Textarea</label>
-            <button onclick="deleteInputDiv('textareaInput')">Delete</button>
+            <button onclick="deleteInputDiv('textareaInput')"><i class="fa-solid fa-trash"></i></button>
           </div>
           <textarea placeholder="placeholder..." class="input" id="textareaInput"></textarea>
         </div>
